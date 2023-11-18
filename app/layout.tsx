@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Aero Viewer',
-  description: 'Realtime monitoring of ait quality in bypass (förbifart) Stockholm',
+  description: 'Realtime monitoring of air quality in bypass (förbifart) Stockholm',
 }
 
 export default function RootLayout({
