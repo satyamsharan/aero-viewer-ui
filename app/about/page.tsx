@@ -8,13 +8,13 @@ export default function About(){
                 <Card className="max-w-xl">
                     <CardBody>
                         <div className="flex flex-col items-center gap-8 p-4">
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="flex flex-col md:flex-row items-center gap-4">
                                 <Image
                                     alt="AFRY"
                                     className=""
                                     src="/tunnel.jpg"
-                                    width={300}
-                                    height={200}
+                                    width={270}
+                                    height={180}
                                     />
 
                                 <div className="text-sm text-justify">
