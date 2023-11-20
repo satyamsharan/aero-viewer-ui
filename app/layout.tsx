@@ -21,16 +21,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning={true}>
       <body className={inter.className}>
         <Providers>
-          <div className='min-h-screen flex flex-col justify-between'>
-            <div className='flex-none'>
+          <div className='h-full flex flex-col'>
             <Header/>
-            </div>
-            <main className='grow flex flex-col'>
+            <main className='flex grow'>
               {children}
             </main>
-            <div className='flex-none'>
-              <Footer/>
-            </div>
+            <Footer/>
           </div>
         </Providers>
       </body>

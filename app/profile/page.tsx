@@ -4,7 +4,7 @@ import {  PiCheckFat, PiEraser, PiFingerprint, PiLock, PiPassword } from "react-
 
 export default function Profile(){
     return (
-        <div className="container grow flex flex-col md:flex-row items-center md:items-start justify-start md:justify-around pt-4 md:pt-20 bg-content">
+        <div className="container grow flex flex-col md:flex-row items-center md:items-start justify-start md:justify-around pt-4 md:pt-20">
             
             <div className="w-80 h-80 rounded-full flex flex-col items-center justify-center bg-default ">
                 <PiLock size={100}/>
