@@ -22,13 +22,13 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <div className='min-h-screen flex flex-col justify-between'>
-            <div>
+            <div className='flex-none'>
             <Header/>
             </div>
-            <main className=''>
+            <main className='grow flex flex-col'>
               {children}
             </main>
-            <div className='mt-auto'>
+            <div className='flex-none'>
               <Footer/>
             </div>
           </div>
