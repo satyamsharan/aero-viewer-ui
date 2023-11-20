@@ -11,7 +11,6 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname()
-  console.log(pathname);
 
   const menuItems = [
     { name: 'Dashboard', link: '/' },
