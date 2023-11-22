@@ -23,7 +23,10 @@ export const options:NextAuthOptions = {
             async authorize(credentials, req) {
                 const users = await prisma.user.findFirst({
                     where: { 
-                        email: credentials?.username,
+                        email: {
+                            equals:credentials?.username,
+                            mode:'insensitive'
+                        },
                         password: credentials?.password
                     },
                 });
