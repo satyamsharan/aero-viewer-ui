@@ -1,8 +1,18 @@
-import { Button, Divider, Input } from "@nextui-org/react";
-import Image from "next/image";
-import {  PiCheckFat, PiEraser, PiFingerprint, PiLock, PiPassword } from "react-icons/pi";
+import { Divider, Input } from "@nextui-org/react";
+import { getServerSession } from "next-auth/next"
+import { options } from "../api/auth/[...nextauth]/options"
 
-export default function Profile(){
+import {  PiFingerprint, PiLock, PiPassword } from "react-icons/pi";
+import { redirect } from 'next/navigation';
+import ChangePassword from "./ChangePassword";
+
+export default async function Profile(){
+    const session = await getServerSession(options)
+    if (!session) {
+        redirect('/api/auth/signin?callbackUrl=/server')
+    }
+    const email:string = session?.user?.email?session.user.email:'';
+
     return (
         <div className="container grow flex flex-col md:flex-row items-center md:items-start justify-start md:justify-around pt-4 md:pt-20">
             
@@ -23,41 +33,11 @@ export default function Profile(){
                         type="email"
                         label="Your Email:"
                         variant="underlined"
-                        defaultValue="satyam.sharan@afry.com"
+                        defaultValue={email}
                         className="w-full"
                     />
                 </div>
-                <div className="flex flex-col gap-1">
-                    <div className="text-xs">Change password?</div>
-                    <Input
-                            required
-                            type="password"
-                            label="Enter Your Old Password:"
-                            variant="bordered"
-                            defaultValue=""
-                            className="w-full"
-                        />
-                    <Input
-                        required
-                        type="password"
-                        label="Enter New Password:"
-                        variant="bordered"
-                        defaultValue=""
-                        className="w-full"
-                    />
-                    <Input
-                        required
-                        type="password"
-                        label="Repeat New Password:"
-                        variant="bordered"
-                        defaultValue=""
-                        className="w-full"
-                    />
-                </div>
-                <div className="flex justify-end gap-4">
-                    <Button color="default"><PiEraser/> Clear</Button>
-                    <Button color="primary"><PiCheckFat />Change Password</Button>
-                </div>
+                <ChangePassword email={email}/>
             </div>
         </div>
     );

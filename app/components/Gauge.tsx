@@ -95,7 +95,6 @@ export default function Gauge({label, value=500, maxValue=1000, color}:GaugeProp
         }
         ]
     };
-    console.log(color?.toString())
     return (
         <div>
             <HighchartsReact

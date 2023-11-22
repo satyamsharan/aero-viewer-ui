@@ -69,7 +69,7 @@ export default function Header() {
               </DropdownItem>
               <DropdownItem
                 key="logout"
-
+                onClick={() => handleMenuItemClick('/api/auth/signout')}
                 color="danger"
                 startContent={<PiSignOut />}>
                 Log Out
