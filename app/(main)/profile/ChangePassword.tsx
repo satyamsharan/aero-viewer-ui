@@ -3,7 +3,7 @@
 import { Button, Input, useDisclosure } from "@nextui-org/react";
 import { useMemo, useState, useEffect, useRef, MutableRefObject } from "react";
 import { PiCheckFat, PiEraser } from "react-icons/pi";
-import Alert from "../components/Alert";
+import Alert from "../../components/Alert";
 
 interface ChangePasswordProps {
     email:string;

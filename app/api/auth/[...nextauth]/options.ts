@@ -31,6 +31,10 @@ export const options:NextAuthOptions = {
             },
         })
     ],
+    pages:{
+        signIn:"/login",
+        signOut:"/logout",
+    },
     theme:{
         colorScheme:"auto",
         logo:"/AFRY-logo.svg"

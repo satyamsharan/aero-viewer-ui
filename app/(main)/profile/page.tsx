@@ -1,6 +1,6 @@
 import { Divider, Input } from "@nextui-org/react";
 import { getServerSession } from "next-auth/next"
-import { options } from "../api/auth/[...nextauth]/options"
+import { options } from "../../api/auth/[...nextauth]/options"
 
 import {  PiFingerprint, PiLock, PiPassword } from "react-icons/pi";
 import { redirect } from 'next/navigation';

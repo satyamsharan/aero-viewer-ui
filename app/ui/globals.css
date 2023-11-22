@@ -10,3 +10,9 @@ body{
   padding: 0px;
   margin: 0px;
 }
+
+.authPage{
+  background-image: url(/tunnel.jpg);
+  background-position: center center;
+  background-size: cover;
+}

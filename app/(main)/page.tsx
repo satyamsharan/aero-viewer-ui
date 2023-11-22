@@ -1,9 +1,9 @@
 "use client"
 import { Card, CardBody } from "@nextui-org/react";
-import LineChart from "./components/LineChart";
-import Gauge from "./components/Gauge";
+import LineChart from "../components/LineChart";
+import Gauge from "../components/Gauge";
 import {semanticColors} from "@nextui-org/theme";
-import Bullet from "./components/Bullet";
+import Bullet from "../components/Bullet";
 
 export default function Home() {
   return (
