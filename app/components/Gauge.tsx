@@ -3,8 +3,9 @@ import Highcharts, { Options } from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import SolidGauge from 'highcharts/modules/solid-gauge';
 
-import HighchartsReact from "highcharts-react-official";
+import HighchartsReact, { HighchartsReactRefObject } from "highcharts-react-official";
 import { Inter } from 'next/font/google'
+import { useEffect, useRef } from 'react';
 
 const inter = Inter({ subsets: ['latin'] })
 const fontStyle = inter.style;
@@ -20,7 +21,16 @@ export default function Gauge({label, value=500, maxValue=1000, color}:GaugeProp
         HighchartsMore(Highcharts);
         SolidGauge(Highcharts);
     }
-    
+
+    const chartComponent = useRef<HighchartsReactRefObject>(null);
+    useEffect(()=>{
+        if(chartComponent.current){
+            const chart = chartComponent.current.chart;
+            const point = chart.series[0].points[0];
+            point.update(value)
+        }
+    },[value])
+
 
     const gaugeOptions:Options = {
         chart: {
@@ -95,11 +105,13 @@ export default function Gauge({label, value=500, maxValue=1000, color}:GaugeProp
         }
         ]
     };
+
     return (
         <div>
             <HighchartsReact
                 highcharts={Highcharts}
                 options={gaugeOptions}
+                ref={chartComponent}
             />
         </div>
     );
