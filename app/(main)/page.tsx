@@ -8,19 +8,19 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
 
-  const [inFra, setInFra] = useState<number>(0);
-  const [brFra, setBrFra] = useState<number>(0);
-  const [QdFra, setQdFra] = useState<number>(0);
-  const [weather, setWeather] = useState<number[]>([0,0,0]);
+  const [inFra, setInFra] = useState<number>(100);
+  const [brFra, setBrFra] = useState<number>(200);
+  const [qdFra, setQdFra] = useState<number>(150);
+  const [weather, setWeather] = useState<number[]>([10,-15,2]);
 
   useEffect(()=>{
     console.log('Ran first time')
     setInterval(()=>{
       console.log('Repeating every time')
-      setInFra(Math.floor(Math.random()*1000))
-      setBrFra(Math.floor(Math.random()*1000))
-      setQdFra(Math.floor(Math.random()*1000))
-      setWeather([Math.floor(Math.random()*100), Math.floor(Math.random()*50)-15, Math.round(Math.random()*1000)/100])
+      setInFra(a=>(a+10)%1000)
+      setBrFra(a=>(a+15)%1000)
+      setQdFra(a=>(a+20)%1000)
+      setWeather(a=>[(a[0] + Math.round(Math.random()*100)/40)%100, (a[1] + Math.round(Math.random()*100)/40)%50, Math.round(Math.random()*1000)/100])
     },5000);
   },[]);
 
@@ -44,7 +44,7 @@ export default function Home() {
         </Card>
         <Card>
           <CardBody>
-            <Gauge label="Quartz Dust" value={QdFra} color={semanticColors.light.danger[500]}/>
+            <Gauge label="Quartz Dust" value={qdFra} color={semanticColors.light.danger[500]}/>
           </CardBody>
         </Card>
       </div>
