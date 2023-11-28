@@ -30,7 +30,7 @@ export default function Home() {
     const data1:number[][] = []
     const data2:number[][] = []
     const data3:number[][] = []
-    for (var d = new Date(yesterday); d <= now; d.setMinutes(d.getMinutes() + 5)) {
+    for (var d = new Date(yesterday); d <= now; d.setMinutes(d.getMinutes() + 1)) {
         let time = (d.getTime() - offsetDate.getTime())/3000000;
         data1.push([d.getTime(), 100 * Math.sin(Math.PI*time)])
         data2.push([d.getTime(), 100 * Math.sin(Math.PI/4 + Math.PI*time)])
@@ -59,7 +59,7 @@ export default function Home() {
       setChartData2(data2)
       setChartData3(data3)
 
-    },300000);
+    },60000);
   },[]);
 
   return (
