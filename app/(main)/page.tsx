@@ -59,7 +59,7 @@ export default function Home() {
       setChartData2(data2)
       setChartData3(data3)
 
-    },60000);
+    },6000);
   },[]);
 
   return (
