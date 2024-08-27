@@ -72,17 +72,17 @@ export default function Home() {
         </Card>
         <Card>
           <CardBody>
-          <Gauge label="Inhalable Fraction" value={inFra} color={semanticColors.light.success[500]}/>
+          <Gauge label="Inhalable Fraction" value={inFra} maxValue={3000} stops={[0.1, 0.833, 0.9]}/>
           </CardBody>
         </Card>
         <Card>
           <CardBody>
-            <Gauge label="Breathable Fraction" value={brFra} color={semanticColors.light.warning[500]}/>
+            <Gauge label="Breathable Fraction" value={brFra} maxValue={5500} stops={[0.1, 0.833, 0.9]}/>
           </CardBody>
         </Card>
         <Card>
           <CardBody>
-            <Gauge label="Quartz Dust" value={qdFra} color={semanticColors.light.danger[500]}/>
+            <Gauge label="Quartz Dust" value={qdFra} maxValue={120} stops={[0.1, 0.833, 0.9]}/>
           </CardBody>
         </Card>
       </div>
