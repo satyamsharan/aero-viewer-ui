@@ -14,7 +14,6 @@ export default function Home() {
   const [weather, setWeather] = useState<number[]>([10,-15,2]);
   const [chartData1, setChartData1] = useState<number[][]>([]);
   const [chartData2, setChartData2] = useState<number[][]>([]);
-  const [chartData3, setChartData3] = useState<number[][]>([]);
 
   useEffect(()=>{
     console.log('Ran first time')
@@ -29,16 +28,13 @@ export default function Home() {
 
     const data1:number[][] = []
     const data2:number[][] = []
-    const data3:number[][] = []
     for (var d = new Date(yesterday); d <= now; d.setMinutes(d.getMinutes() + 1)) {
         let time = (d.getTime() - offsetDate.getTime())/3000000;
         data1.push([d.getTime(), 100 * Math.sin(Math.PI*time)])
         data2.push([d.getTime(), 100 * Math.sin(Math.PI/4 + Math.PI*time)])
-        data3.push([d.getTime(), 100 * Math.sin(Math.PI/2 + Math.PI*time)])
     }
     setChartData1(data1)
     setChartData2(data2)
-    setChartData3(data3)
 
     setInterval(()=>{
       console.log('Repeating every time')
@@ -51,13 +47,10 @@ export default function Home() {
       let time = (d.getTime() - offsetDate.getTime())/3000000;
       data1.pop();
       data2.pop();
-      data3.pop();
       data1.push([d.getTime(), 100 * Math.sin(Math.PI*time)])
       data2.push([d.getTime(), 100 * Math.sin(Math.PI/4 + Math.PI*time)])
-      data3.push([d.getTime(), 100 * Math.sin(Math.PI/2 + Math.PI*time)])
       setChartData1(data1)
       setChartData2(data2)
-      setChartData3(data3)
 
     },6000);
   },[]);
@@ -88,7 +81,7 @@ export default function Home() {
       </div>
         <Card>
           <CardBody>
-            <LineChart data1={chartData1} data2={chartData2} data3={chartData3}/>
+            <LineChart data1={chartData1} data2={chartData2}/>
           </CardBody>
         </Card>
     </main>
