@@ -40,7 +40,7 @@ export default function Gauge({label, value=500, maxValue, stops}:GaugeProps){
             backgroundColor:'None',
             style:{
                 fontFamily: fontStyle.fontFamily,
-                fontSize:'14px'
+                fontSize:'14px',
             },
             height: "200"
         },
@@ -74,6 +74,9 @@ export default function Gauge({label, value=500, maxValue, stops}:GaugeProps){
         },
     
         yAxis: {
+            labels: {
+                distance: "16px",
+            },
         min: 0,
         max: maxValue,
         lineWidth: 0,
@@ -86,7 +89,10 @@ export default function Gauge({label, value=500, maxValue, stops}:GaugeProps){
                 dataLabels: {
                     enabled: true,
                     format:'{point.y} μg/m3',
-                    borderWidth:0
+                    borderWidth:0,
+                    style: {
+                        fontSize: '12px'
+                    }
                 },
                 linecap: "round",
                 stickyTracking: false,
