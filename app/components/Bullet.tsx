@@ -33,7 +33,7 @@ export default function Bullet({temperature=0, humidity=0, windSpeed=0}:BulletPr
             backgroundColor:'None',
             style:{
                 fontFamily: fontStyle.fontFamily,
-                fontSize:'12px'
+                fontSize:'14px'
             },
             height: "200"
         },
