@@ -32,9 +32,15 @@ export default function Home() {
     const data3:number[][] = []
     for (var d = new Date(yesterday); d <= now; d.setMinutes(d.getMinutes() + 1)) {
         let time = (d.getTime() - offsetDate.getTime())/3000000;
-        data1.push([d.getTime(), 1500 + 50 * Math.random()])
-        data2.push([d.getTime(), 1000 + 50 * Math.random()])
-        data3.push([d.getTime(), 100 + 10 * Math.random()])
+        if((time/10)%10==2){
+          data1.push([d.getTime(), 1800 + 10 * Math.random()])
+          data2.push([d.getTime(), 1300 + 10 * Math.random()])
+          data3.push([d.getTime(), 200 + 10 * Math.random()])
+        }else{
+          data1.push([d.getTime(), 1500 + 50 * Math.random()])
+          data2.push([d.getTime(), 1000 + 50 * Math.random()])
+          data3.push([d.getTime(), 100 + 10 * Math.random()])
+        }
     }
     setChartData1(data1)
     setChartData2(data2)
