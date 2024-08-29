@@ -92,7 +92,7 @@ export default function LineChart({data1, data2}:LineChartProps){
                 valueDecimals: 2
             }
         },{
-            name: 'Breathable',
+            name: 'Respirable',
             data: data2,
             type: 'spline',
             lineWidth: 2,

@@ -70,7 +70,7 @@ export default function Home() {
         </Card>
         <Card>
           <CardBody>
-            <Gauge label="Breathable Fraction" value={brFra} maxValue={5500} stops={[0.1, 0.833, 0.9]}/>
+            <Gauge label="Respirable Fraction" value={brFra} maxValue={5500} stops={[0.1, 0.833, 0.9]}/>
           </CardBody>
         </Card>
         <Card>
