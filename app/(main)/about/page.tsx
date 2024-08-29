@@ -21,8 +21,8 @@ export default function About(){
                                     <p>
                                         Aero Viewer is an initiative from AFRY to help and assist Trafikverket with remote monitoring of working conditions in the Stockholm Bypass Tunnel project. For more details feel free to contact:
                                     </p>
-                                    <p className="pt-2 font-bold">Fiona Ingham</p>
-                                    <p>fiona.ingham@afry.com</p>
+                                    <p className="pt-2 font-bold">Zanna Zielfeldt</p>
+                                    <a href="mailto:zanna.zielfeldt@afry.com" style={{ color: 'blue', textDecoration: 'underline' }}>zanna.zielfeldt@afry.com</a>
                                 </div>
                             </div>
 
