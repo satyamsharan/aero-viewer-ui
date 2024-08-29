@@ -32,7 +32,7 @@ export default function Home() {
     const data3:number[][] = []
     for (var d = new Date(yesterday); d <= now; d.setMinutes(d.getMinutes() + 1)) {
         let time = (d.getTime() - offsetDate.getTime())/3000000;
-        if((time/10)%10==2){
+        if(Math.floor(time/100)%10==2){
           data1.push([d.getTime(), 1800 + 10 * Math.random()])
           data2.push([d.getTime(), 1300 + 10 * Math.random()])
           data3.push([d.getTime(), 200 + 10 * Math.random()])
