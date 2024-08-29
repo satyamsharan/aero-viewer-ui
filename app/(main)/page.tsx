@@ -77,7 +77,7 @@ export default function Home() {
         </Card>
         <Card>
           <CardBody>
-            <Gauge label="Breathable Fraction" value={brFra} color={semanticColors.light.warning[500]}/>
+            <Gauge label="Respirable Fraction" value={brFra} color={semanticColors.light.warning[500]}/>
           </CardBody>
         </Card>
         <Card>
