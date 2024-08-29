@@ -10,10 +10,9 @@ const fontStyle = inter.style;
 interface LineChartProps{
     data1:number[][];
     data2:number[][];
-    data3:number[][];
 }
 
-export default function LineChart({data1, data2, data3}:LineChartProps){
+export default function LineChart({data1, data2}:LineChartProps){
     
     const chartComponent = useRef<HighchartsReactRefObject>(null);
     useEffect(()=>{
@@ -21,17 +20,15 @@ export default function LineChart({data1, data2, data3}:LineChartProps){
             const chart = chartComponent.current.chart;
             const series1 = chart.series[0]
             const series2 = chart.series[1]
-            const series3 = chart.series[2]
 
 
             console.log(data1)
-            if(data1[data1.length-1] && data2[data2.length-1] && data3[data3.length-1]){
+            if(data1[data1.length-1] && data2[data2.length-1]){
                 series1.addPoint([data1[data1.length-1][0], data1[data1.length-1][1]], true, true);
                 series2.addPoint([data2[data2.length-1][0], data2[data2.length-1][1]], true, true);
-                series3.addPoint([data3[data3.length-1][0], data3[data3.length-1][1]], true, true);
             }
         }
-    },[data1, data2, data3])
+    },[data1, data2])
 
     const lineChartOptions: Options = {
         chart: {
@@ -97,14 +94,6 @@ export default function LineChart({data1, data2, data3}:LineChartProps){
         },{
             name: 'Respirable',
             data: data2,
-            type: 'spline',
-            lineWidth: 2,
-            tooltip: {
-                valueDecimals: 2
-            }
-        },{
-            name: 'TSP',
-            data: data3,
             type: 'spline',
             lineWidth: 2,
             tooltip: {

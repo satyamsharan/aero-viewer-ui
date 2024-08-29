@@ -9,14 +9,16 @@ import { useEffect, useRef } from 'react';
 
 const inter = Inter({ subsets: ['latin'] })
 const fontStyle = inter.style;
+const colors = ['#17c964', '#f5a524', '#f31260'];
 
 interface GaugeProps{
     label:string;
     value?:number;
-    maxValue?:number;
-    color?:string;
+    stops: any;
+    maxValue:number;
 }
-export default function Gauge({label, value=500, maxValue=1000, color}:GaugeProps){
+export default function Gauge({label, value=500, maxValue, stops}:GaugeProps){
+    const mappedStops = stops.map((stop: any, index: any) => [stop, colors[index]]);
     if(typeof Highcharts == 'object'){
         HighchartsMore(Highcharts);
         SolidGauge(Highcharts);
@@ -38,7 +40,7 @@ export default function Gauge({label, value=500, maxValue=1000, color}:GaugeProp
             backgroundColor:'None',
             style:{
                 fontFamily: fontStyle.fontFamily,
-                fontSize:'12px'
+                fontSize:'14px',
             },
             height: "200"
         },
@@ -72,9 +74,14 @@ export default function Gauge({label, value=500, maxValue=1000, color}:GaugeProp
         },
     
         yAxis: {
+            labels: {
+                distance: "16px",
+            },
         min: 0,
         max: maxValue,
-        lineWidth: 0
+        lineWidth: 0,
+        stops: mappedStops,
+        tickAmount: 6,
         },
     
         plotOptions: {
@@ -82,7 +89,10 @@ export default function Gauge({label, value=500, maxValue=1000, color}:GaugeProp
                 dataLabels: {
                     enabled: true,
                     format:'{point.y} μg/m3',
-                    borderWidth:0
+                    borderWidth:0,
+                    style: {
+                        fontSize: '12px'
+                    }
                 },
                 linecap: "round",
                 stickyTracking: false,
@@ -96,7 +106,6 @@ export default function Gauge({label, value=500, maxValue=1000, color}:GaugeProp
             type: "solidgauge",
             data: [
             {
-                color,
                 radius: "100%",
                 innerRadius: "80%",
                 y: value
